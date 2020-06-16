@@ -1,68 +1,43 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# New York Times PWA
+[![Heroku](https://img.shields.io/badge/Heroku-deployed-blueviolet)](https://nytimes-pwa.herokuapp.com)
+<img alt="Website" src="https://img.shields.io/website/http/nytimes-pwa.herokuapp.com">
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/ronniesong0809/nytimes-pwa/blob/master/LICENSE)
+[![contributions welcome](https://img.shields.io/badge/Contributions-welcome-brightgreen.svg?style=flat)](https://github.com/ronniesong0809/nytimes-pwa/issues/new)
 
-## Available Scripts
+Copyright (c) 2020 Ronnie Song
 
-In the project directory, you can run:
+This is a simple PWA that display the New York Times News.
 
-### `yarn start`
+Live demo: [here](https://nytimes-pwa.herokuapp.com/)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Tech Stack and Tools
+[New York Times News API](https://developer.nytimes.com/)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+yarn, create-react-app, react-bootstrap, react-router-dom, Axios, fontawesome, Heroku
 
-### `yarn test`
+## Setup
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Git clone, and install all modules/dependencies
+```shell
+$ git clone https://github.com/ronniesong0809/nytimes-pwa.git
+$ cd dashboard
+$ yarn install
 
-### `yarn build`
+```
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Run
+```shell
+$ yarn start
+```
+Go to: [localhost:3000/](http://localhost:3000/)
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Reference
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+ - New York Times News API [Documentation](https://developer.nytimes.com/)
+ - [Heroku Buildpack for create-react-app](https://elements.heroku.com/buildpacks/mars/create-react-app-buildpack)
 
-### `yarn eject`
+## License
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+This program is licensed under the "MIT License". Please
+see the file [`LICENSE`](https://github.com/ronniesong0809/nytimes-pwa/blob/master/LICENSE) in the source distribution of this
+software for license terms.
