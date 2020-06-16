@@ -69,7 +69,11 @@ class MostViewed extends Component {
   }
 
   componentDidMount(){
-    const base = "https://api.nytimes.com/svc/mostpopular/v2/viewed/1.json"
+    var base = "https://api.nytimes.com/svc/mostpopular/v2/" + this.props.type + "/1.json"
+    console.log(this.props.type)
+    // }else{
+    //   base = "https://api.nytimes.com/svc/mostpopular/v2/" + this.props.type + "/1/facebook.json"
+    // }
     const key = "?api-key=fpYY7T905GANr8rLe4LeKmTbjcPwlr6J"
     Axios.get(base+key)
     .then(async(res) => {

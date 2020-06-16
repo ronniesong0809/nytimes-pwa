@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import MostViewed from './Components/MostViewed'
-import MostEmailed from './Components/MostEmailed'
-import MostShared from './Components/MostShared'
+import Search from './Components/Search'
 import Error from './Components/Error'
 import About from './Components/About'
 
@@ -12,9 +11,10 @@ class App extends Component {
       <div className="App">
         <Router>
           <Switch>
-            <Route path="/" component={MostViewed} />
-            <Route path="/MostEmailed" component={MostEmailed} />
-            <Route path="/MostShared" component={MostShared} />
+            <Route exact path="/" component={Search} />
+            <Route path="/MostViewed" render={({match})=><MostViewed type={"viewed"} match={match}/>}/>
+            <Route path="/MostEmailed" render={({match})=><MostViewed type={"emailed"} match={match}/>}/>
+            <Route path="/MostShared" render={({match})=><MostViewed type={"shared"} match={match}/>}/>
             <Route path="/about" component={About} />
             <Route component={Error} />
           </Switch>
