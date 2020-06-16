@@ -15,23 +15,6 @@ class MostViewed extends Component {
     }
   }
 
-  getStory(i){
-    // console.log(i)
-    const base = "https://hacker-news.firebaseio.com/v0/item/"+i+".json"
-    Axios.get(base)
-    .then(res => {
-      // console.log(res.data)
-      this.setState({
-        items: [...this.state.items, res.data],
-        isLoad: true
-      })
-      // console.log(this.state.items)
-    })
-    .catch(err => {
-      console.log(err);
-    })
-  }
-
   getSection(item){
     if(item.subsection){
       return "(" + item.section + " - " + item.subsection + ")"

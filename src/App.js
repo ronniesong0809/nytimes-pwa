@@ -11,11 +11,11 @@ class App extends Component {
       <div className="App">
         <Router>
           <Switch>
-            <Route exact path="/" component={Search} />
+            <Route exact path="/" component={About} />
             <Route path="/MostViewed" render={({match})=><MostViewed type={"viewed"} match={match}/>}/>
             <Route path="/MostEmailed" render={({match})=><MostViewed type={"emailed"} match={match}/>}/>
             <Route path="/MostShared" render={({match})=><MostViewed type={"shared"} match={match}/>}/>
-            <Route path="/about" component={About} />
+            <Route path="/:id" component={Search} />
             <Route component={Error} />
           </Switch>
         </Router>

@@ -15,23 +15,6 @@ class Search extends Component {
     }
   }
 
-  getStory(i){
-    // console.log(i)
-    const base = "https://hacker-news.firebaseio.com/v0/item/"+i+".json"
-    Axios.get(base)
-    .then(res => {
-      // console.log(res.data)
-      this.setState({
-        items: [...this.state.items, res.data],
-        isLoad: true
-      })
-      // console.log(this.state.items)
-    })
-    .catch(err => {
-      console.log(err);
-    })
-  }
-
   shortUrl(url){
     if(url){
       // console.log(url)
@@ -43,23 +26,33 @@ class Search extends Component {
 
   time(timestamp){
     return moment(timestamp).format('MMMM Do YYYY, h:mm:ss a')
-    // return moment(timestamp*1000).startOf('hour').fromNow()
   }
 
   fromNow(timestamp){
     return moment(timestamp).fromNow()
-    // return moment(timestamp*1000).startOf('hour').fromNow()
   }
 
   getUserUrl(userId){
     if(userId.person){
-      return "https://www.nytimes.com/by/" + userId.person[0].firstname.toLowerCase() + "-" + userId.person[0].lastname.toLowerCase()
+      if(userId.person[0]){
+        var firstname = ""
+        var lastname = ""
+
+        if(userId.person[0].firstname)
+          firstname = userId.person[0].firstname.toLowerCase()
+
+        if(userId.person[0].lastname)
+          lastname = userId.person[0].lastname.toLowerCase()
+
+        return "https://www.nytimes.com/by/" + firstname + "-" + lastname
+      }
     }
+    return ""
   }
 
   getImageUrl(imageUrl){
     if(imageUrl[0]){
-      console.log(imageUrl[0].url)
+      // console.log(imageUrl[0].url)
       return "https://static01.nyt.com/" + imageUrl[0].url
     }else{
       return "https://static01.nyt.com/vi-assets/images/share/1200x900_t.png"
@@ -67,7 +60,8 @@ class Search extends Component {
   }
 
   componentDidMount(){
-    const base = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=election"
+    console.log(this.props.match.params.id)
+    const base = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=" + this.props.match.params.id
     const key = "&api-key=fpYY7T905GANr8rLe4LeKmTbjcPwlr6J"
     Axios.get(base+key)
     .then(async(res) => {
@@ -109,7 +103,7 @@ class Search extends Component {
                   />
                   <Media.Body>
                     <span className="title">
-                      <a  className="blackLink" href={item.web_url} rel="noopener noreferrer" target="_blank">{item.abstract}</a>
+                      <a  className="blackLink" href={item.web_url} rel="noopener noreferrer" target="_blank">{item.headline.main}</a>
                     </span> {" "}
                     <span className="subtitle">
                       {this.shortUrl(item.url)}
@@ -120,7 +114,7 @@ class Search extends Component {
                         <a className="whiteLink" href={this.getUserUrl(item.byline)} rel="noopener noreferrer" target="_blank">{item.byline.original}</a>
                       </Badge>
                     </span><br/>
-                    <span>{item.lead_paragraph}</span>
+                    <span>{item.abstract}</span>
                   </Media.Body>
                 </Media>
               </ListGroup.Item>
