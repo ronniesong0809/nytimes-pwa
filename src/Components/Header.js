@@ -17,6 +17,12 @@ class Headers extends Component {
     });
   };
 
+  handleKeyDown = (e) => {
+    if (e.key === "Enter"){
+      e.preventDefault()
+    }
+  }
+
   render() {
     return (
       <Navbar sticky="top" bg="dark" variant="dark" expand="lg">
@@ -38,6 +44,7 @@ class Headers extends Component {
               type="text"
               placeholder="Search"
               className="mr-sm-2"
+              onKeyDown={this.handleKeyDown}
             />
             <Button variant="outline-info" href={this.state.search} >Search</Button>
           </Form>
